@@ -1,4 +1,4 @@
-												-- CREATE TABLE --
+-- CREATE TABLE --
 
 CREATE TABLE sales (
     invoice_id VARCHAR(30) NOT NULL PRIMARY KEY,
@@ -23,11 +23,7 @@ CREATE TABLE sales (
 select * from sales
 limit 5;
 
-
-
-												-- FEATURE ENGINEERING --
-
-												
+-- FEATURE ENGINEERING --											
 
 1. Time_of_day
 
@@ -75,7 +71,7 @@ UPDATE sales
 SET month_name = TRIM(TO_CHAR(date, 'month'));
 
 
-												--EXPLORATORY DATA ANALYSIS--
+--EXPLORATORY DATA ANALYSIS--
 
 
 -- Generic Questions --
@@ -178,7 +174,8 @@ from sales
 group by product_line
 order by average_rating desc
 
-																-- SALES ANALYSIS --
+-- SALES ANALYSIS --
+
 -- 1.Number of sales made in each time of the day per weekday
 select day_name, time_of_day, count(invoice_id) as total_sales
 from sales
@@ -206,7 +203,7 @@ group by customer_type
 order by total_vat desc
 limit 1;
 
-																	-- CUSTOMER ANALYSIS --
+-- CUSTOMER ANALYSIS --
 
 -- 1.How many unique customer types does the data have?
 select distinct customer_type
@@ -269,4 +266,3 @@ from sales
 group by day_name, branch
 order by avg_rating desc
 limit 1;
-
